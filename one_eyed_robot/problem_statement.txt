@@ -1,0 +1,7 @@
+On the ground along Keble Road there are a line of n buckets, in each bucket is a single ball. The balls are red, green and blue. A robot is to be programming to sort the balls so that there's one ball in each bucket still but the colours are now in the order red, green, blue. So, working from left to right an observer will see all the red balls in buckets, then all the green balls in buckets, and finally all the blue balls.
+
+The robot is only allowed to examine one ball at a time by peering into its bucket and is only allowed to examine each ball once. When it looks at a ball it must decide what to do with it. The robot has two arms and the only ball manipulation it can do is swap the balls in two buckets.
+
+1. Program the robot to sort the balls.
+
+2. Write out a proof that the proposed algorithm works.
