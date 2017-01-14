@@ -43,14 +43,14 @@ def flatten_dict_rec(in_dict, prefix=''):
 
     out_dict = dict()
 
-    for key, value in in_d.items():
+    for key, value in in_dict.items():
 
         if isinstance(value, dict):
             # if current key value pair is a nested dictionary,
             # call the flatten_dict_rec with current value (dict), and updated prefix.
             # unpack the result dictionary, and merge it with the output dictionary.
 
-            out_dict = dict(answer, **flat_dict_rec(value, prefix + key + '.'))
+            out_dict = dict(out_dict, **flatten_dict_rec(value, prefix + key + '.'))
 
         else:
             # if current value is a string/normal value,
@@ -59,3 +59,26 @@ def flatten_dict_rec(in_dict, prefix=''):
             out_dict[prefix + key] = value
 
     return out_dict 
+
+
+def main():
+
+    in_dict = {
+               'Key1': '1',
+               'Key2': {
+                        'a' : '2',
+                        'b' : '3',
+                        'c' : {
+                               'd' : '3',
+                               'e' : '1'
+                              }
+                       }
+              }
+    print("\nOriginal dictionary: ")
+    print(in_dict)
+
+    print("\nRecursive flatten: ")
+    print(flatten_dict_rec(in_dict))
+
+if __name__ == "__main__":
+    main()
