@@ -32,4 +32,30 @@ Sample Output:
 __author__ = "vivek"
 
 
+def flatten_dict_rec(in_dict, prefix=''):
+    """
+    Given a dictionary, flatten it recurvisely.
+    :param in_dict (dict): input dictionary
+    :param prefix (str) [optional] [default=' ']: the prefix for keys of current dictionary.
 
+    :return (dict): flatten dictionary.
+    """
+
+    out_dict = dict()
+
+    for key, value in in_d.items():
+
+        if isinstance(value, dict):
+            # if current key value pair is a nested dictionary,
+            # call the flatten_dict_rec with current value (dict), and updated prefix.
+            # unpack the result dictionary, and merge it with the output dictionary.
+
+            out_dict = dict(answer, **flat_dict_rec(value, prefix + key + '.'))
+
+        else:
+            # if current value is a string/normal value,
+            # add it to the output dictionary directly with proper key.
+
+            out_dict[prefix + key] = value
+
+    return out_dict 
