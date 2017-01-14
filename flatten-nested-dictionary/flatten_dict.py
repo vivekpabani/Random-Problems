@@ -73,9 +73,17 @@ def flatten_dict_iter(in_dict, prefix=''):
     out_dict = dict()
     stack = list()
 
+    # start with the input dictionary in the stack.
     stack.append([in_dict, prefix])
 
     while stack:
+        # till the stack is not empty, do the following:
+        # pop the top item(a dictionary object) from the stack.
+        # iterate through all its keys and values.
+        # if a value is a dictionary instance, push it to the stack to be handled later.
+        # otherwise add it to the output dictionary.
+        # the items(dicts) added to the stack in this run will be flatten in next loop run. 
+
         top_item = stack.pop()
         curr_dict, prefix = top_item[0], top_item[1]
 
